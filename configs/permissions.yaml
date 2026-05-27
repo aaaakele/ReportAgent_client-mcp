@@ -1,0 +1,140 @@
+# Permission Configuration for Mining Daily Agent
+# RBAC + Policy Validation model
+
+roles:
+  planner:
+    allowed:
+      - plan
+      - read_tools
+    denied:
+      - call_tool
+      - modify_permissions
+
+  executor:
+    allowed:
+      - call_tool
+    denied:
+      - modify_permissions
+      - plan_override
+
+  reporter:
+    allowed:
+      - generate_report
+      - read_state
+    denied:
+      - network_request
+      - call_tool
+
+# Tool-level permissions
+tools:
+  search_news:
+    allowed_roles: [executor]
+    constraints:
+      days: { min: 1, max: 7 }
+  fetch_article:
+    allowed_roles: [executor]
+    constraints:
+      url_whitelist_only: true
+  extract_resources:
+    allowed_roles: [executor]
+    constraints:
+      file_type: [pdf]
+      max_size_mb: 50
+  get_price:
+    allowed_roles: [executor]
+    constraints:
+      commodity_whitelist_only: true
+  get_trend:
+    allowed_roles: [executor]
+    constraints:
+      days: { min: 1, max: 30 }
+      commodity_whitelist_only: true
+  list_commodities:
+    allowed_roles: [executor]
+
+# URL whitelist
+url_whitelist:
+  domains:
+    - mining.com
+    - mining-technology.com
+    - australianmining.com.au
+    - reuters.com
+    - sec.gov
+    - sedar.com
+    - asx.com.au
+    - www.mining.com
+    - www.mining-technology.com
+    - www.australianmining.com.au
+    - www.reuters.com
+    - www.sec.gov
+    - www.sedar.com
+    - www.asx.com.au
+    - pilbaraminerals.com.au
+    - www.pilbaraminerals.com.au
+    - igolimited.com.au
+    - www.igolimited.com.au
+    - mineralresources.com.au
+    - www.mineralresources.com.au
+    - spglobal.com
+    - www.spglobal.com
+    - miningweekly.com
+    - www.miningweekly.com
+    - mining.com
+    - www.mining.com
+    - kitco.com
+    - www.kitco.com
+    - resourceworld.com
+    - www.resourceworld.com
+    - finance.yahoo.com
+    - yahoo.com
+    - pls.com.au
+    - www.pls.com.au
+
+  schemes:
+    - https
+    - http
+
+# URL blacklist
+url_blacklist:
+  domains:
+    - localhost
+    - 127.0.0.1
+    - 0.0.0.0
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+  schemes:
+    - file
+    - ftp
+    - gopher
+
+# Approved commodities
+approved_commodities:
+  - lithium_carbonate
+  - spodumene
+  - spodumene_conc
+  - iron_ore
+  - copper
+  - gold
+
+# File access restrictions
+file_access:
+  allowed_paths:
+    - /reports
+    - /tmp/downloads
+    - reports/
+    - tmp/downloads/
+  denied_paths:
+    - /etc
+    - /root
+    - .env
+    - secrets
+    - config/secrets
+
+# Resource limits
+resource_limits:
+  request_timeout_seconds: 15
+  max_pdf_size_mb: 50
+  max_concurrent_tools: 5
+  max_news_days: 7
+  max_trend_days: 30

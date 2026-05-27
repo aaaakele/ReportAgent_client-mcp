@@ -1,0 +1,41 @@
+# MCP Framework
+fastmcp>=2.0.0
+
+# Agent Framework
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+
+# PDF Parsing
+pdfplumber>=0.11.0
+pymupdf>=1.24.0
+
+# News Fetching
+trafilatura>=1.12.0
+feedparser>=6.0.0
+requests>=2.32.0
+httpx>=0.27.0
+
+# Report Rendering
+jinja2>=3.1.0
+
+# Web Server (for MCP SSE transport)
+uvicorn>=0.30.0
+starlette>=0.38.0
+sse-starlette>=2.0.0
+
+# Data Processing
+pydantic>=2.0.0
+
+# YAML Config
+pyyaml>=6.0
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.24.0
+
+# Async
+anyio>=4.0.0
+
+# Utilities
+python-dateutil>=2.9.0

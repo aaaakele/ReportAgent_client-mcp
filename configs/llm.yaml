@@ -1,0 +1,22 @@
+# LLM Configuration
+default_provider: deepseek
+
+providers:
+  openai:
+    model: gpt-4o
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.3
+    max_tokens: 4096
+
+  deepseek:
+    model: deepseek-chat
+    api_key_env: DEEPSEEK_API_KEY
+    base_url: https://api.deepseek.com/v1
+    temperature: 0.3
+    max_tokens: 4096
+
+  anthropic:
+    model: claude-sonnet-4-6
+    api_key_env: ANTHROPIC_API_KEY
+    temperature: 0.3
+    max_tokens: 4096

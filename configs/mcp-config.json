@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "mining-news": {
+      "command": "D:\\桌面\\mcp\\mcp-venv\\Scripts\\python.exe",
+      "args": ["-m", "servers.mining_news.server"],
+      "env": {
+        "PYTHONPATH": "D:\\桌面\\mcp"
+      },
+      "transport": "stdio"
+    },
+    "mineral-pdf": {
+      "command": "D:\\桌面\\mcp\\mcp-venv\\Scripts\\python.exe",
+      "args": ["-m", "servers.mineral_pdf.server"],
+      "env": {
+        "PYTHONPATH": "D:\\桌面\\mcp"
+      },
+      "transport": "stdio"
+    },
+    "lme-price": {
+      "command": "D:\\桌面\\mcp\\mcp-venv\\Scripts\\python.exe",
+      "args": ["-m", "servers.lme_price.server"],
+      "env": {
+        "PYTHONPATH": "D:\\桌面\\mcp"
+      },
+      "transport": "stdio"
+    }
+  }
+}

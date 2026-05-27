@@ -1,0 +1,40 @@
+services:
+  agent:
+    build: .
+    container_name: mining-daily-agent
+    environment:
+      - PYTHONPATH=/app
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    volumes:
+      - ./reports:/app/reports
+      - ./configs:/app/configs
+    command: ["python", "-m", "client.main"]
+
+  mining-news:
+    build: .
+    container_name: mining-news-mcp
+    environment:
+      - PYTHONPATH=/app
+    ports:
+      - "8001:8001"
+    command: ["python", "-m", "servers.mining_news.server"]
+
+  mineral-pdf:
+    build: .
+    container_name: mineral-pdf-mcp
+    environment:
+      - PYTHONPATH=/app
+    ports:
+      - "8002:8002"
+    command: ["python", "-m", "servers.mineral_pdf.server"]
+
+  lme-price:
+    build: .
+    container_name: lme-price-mcp
+    environment:
+      - PYTHONPATH=/app
+    ports:
+      - "8003:8003"
+    command: ["python", "-m", "servers.lme_price.server"]
