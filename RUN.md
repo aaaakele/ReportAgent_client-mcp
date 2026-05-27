@@ -15,7 +15,7 @@ pip install -r requirements.txt
 export OPENAI_API_KEY="sk-..."
 
 # 或者使用 DeepSeek
-export DEEPSEEK_API_KEY="sk-bd83af914c054210bd75ac2dce674b46"
+export DEEPSEEK_API_KEY="sk-..."
 # 修改 configs/llm.yaml: default_provider: deepseek
 
 # 或者使用 Anthropic
