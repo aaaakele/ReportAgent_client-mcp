@@ -142,6 +142,8 @@ PYTHONPATH=. python -m servers.lme_price.server
 }
 ```
 
+MCP Server 可直接与 Claude Desktop 集成，测试示例页面可在此查看：[Mining Daily Agent - Claude 对话示例](https://claude.ai/share/0144efd7-a227-4c1f-a920-3dd8a7cf829f)
+
 ## 权限模型
 
 项目实现了完整的 RBAC + Policy Validation 权限控制：
