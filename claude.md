@@ -888,16 +888,3 @@ Codex 必须：
 
 ---
 
-# 14. 给 Codex 的执行 Prompt
-
-请严格按照 claude.md 实现完整项目。
-
-要求：
-
-1. 按 Phase 顺序执行
-2. 每完成一个 Phase 输出对应文件
-3. 权限管理不可跳过
-4. 所有 MCP Server 必须独立可运行
-5. 优先保证闭环
-6. 必须支持 docker-compose 一键启动
-7. 输出完整代码
